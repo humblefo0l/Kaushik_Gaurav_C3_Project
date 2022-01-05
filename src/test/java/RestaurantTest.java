@@ -67,4 +67,28 @@ class RestaurantTest {
     }
     //<<<<<<<<<<<<<<<<<<<<<<<MENU>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
+    //<<<<<<<<<<<<<<<<<<<<<<<Order Total>>>>>>>>>>>>>>>>>>>>>>
+    @Test
+    public void get_the_total_order_value(){
+        restaurant.addToMenu("Burrito", 275);
+        restaurant.addToMenu("Paneer Sandwich", 100);
+
+        List<String> items = new ArrayList<>();
+        items.add("Sweet corn soup");
+        items.add("Burrito");
+
+        int orderTotal = restaurant.getOrderTotal(items);
+
+        assertEquals(394, orderTotal);
+    }
+
+    @Test
+    public void get_zero_order_value_when_empty_list_is_passed(){
+        List<String> items = new ArrayList<>();
+
+        int orderTotal = restaurant.getOrderTotal(items);
+
+        assertEquals(0, orderTotal);
+    }
+    //<<<<<<<<<<<<<<<<<<<<<<<Order Total>>>>>>>>>>>>>>>>>>>>>>
 }
