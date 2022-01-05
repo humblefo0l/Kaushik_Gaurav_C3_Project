@@ -12,8 +12,8 @@ public class Item {
         return name;
     }
 
-    public int getPrice() {
-        return price;
+    public int getPriceOfItem() {
+        return this.price;
     }
 
     @Override
